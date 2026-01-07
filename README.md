@@ -154,7 +154,7 @@ npm run lint   # Linter
 
 ## Autor
 
-Fernando - [@Fernando88323](https://github.com/Fernando88323)
+Fernando Gutiérrez - [@Fernando88323](https://github.com/Fernando88323)
 
 ## Licencia
 
