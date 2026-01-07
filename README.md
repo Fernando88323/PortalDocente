@@ -18,54 +18,64 @@ La plataforma permite a **docentes y decanos** administrar grupos, estudiantes y
 ## Funcionalidades Principales
 
 **Dashboard Analítico**
+
 - Visualización de estadísticas en tiempo real con gráficas interactivas.
 - Métricas de rendimiento académico por grupo y estudiante.
 - Widgets de eventos y progreso con animaciones.
 
 **Gestión de Estudiantes**
+
 - CRUD completo con búsqueda avanzada y filtros.
 - Edición inline de información.
 - Visualización de historial académico y estadísticas individuales.
 
 **Sistema de Evaluaciones Docentes y Decano**
+
 - Evaluaciones con preguntas dinámicas y calificación automática.
 - Control de períodos de evaluación con validación de fechas.
 - Sistema de respuestas con persistencia local (LocalStorage).
 - Manejo diferenciado por rol (docente/decano).
 
 **Gestión de Grupos Académicos**
+
 - Administración de grupos con información de jornada, aula y horarios.
 - Visualización en tarjetas animadas con diseño moderno.
 - Filtros y búsqueda en tiempo real.
 
 **Reportes Avanzados**
+
 - Tasa de aprobación por grupo y cuota.
 - Exportación a PDF y Excel.
 - Visualización con tablas interactivas y búsqueda.
 - Generación dinámica según rol del usuario.
 
 **Sistema de Notificaciones**
+
 - Notificaciones en tiempo real con rutas dinámicas.
 - Integración con React Hot Toast y Sonner.
 
 ## Stack Tecnológico
 
 **Core**
+
 - Next.js 15.1.6 con Turbopack.
 - React 19.
 - Context API para estado global.
 
 **UI/UX**
+
 - TailwindCSS 3.4.1
 - Framer Motion (animaciones)
 - React Icons, Lucide React, Font Awesome
 
 **Gráficas y Visualización**
+
 - Chart.js con React Chart.js 2.
 - Recharts.
 - React CountUp.
 
 **Utilidades**
+
 - jsPDF y jsPDF AutoTable (PDFs).
 - XLSX (Excel).
 - React Select (formularios).
@@ -103,24 +113,28 @@ La plataforma permite a **docentes y decanos** administrar grupos, estudiantes y
 ## Características Técnicas Destacadas
 
 **Autenticación y Seguridad**
+
 - Middleware de Next.js para protección de rutas.
 - Validación de JWT en cookies.
 - Redirección automática según estado de autenticación.
 - Sistema de roles (Docente, Decano).
 
 **Optimización de Rendimiento**
+
 - Lazy loading y code splitting.
 - Skeleton loaders para mejor UX.
 - Memoización con useMemo y useCallback.
 - Optimización de re-renders con React 19.
 
 **Estado y Datos**
+
 - Context API para compartir estado entre componentes.
 - Persistencia local con LocalStorage para evaluaciones.
 - Gestión de ciclos académicos dinámicos.
 - Validación de formato de ciclos (01/26).
 
 **Exportación de Datos**
+
 - PDFs con diseño personalizado y tablas automáticas.
 - Hojas de Excel con formateo y múltiples sheets.
 - Descarga de reportes según filtros seleccionados.
