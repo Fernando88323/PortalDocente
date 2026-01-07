@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Essential utility classes for input number fields */
+.no-spinner::-webkit-inner-spin-button,
+.no-spinner::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-spinner {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+body {
+  cursor: default;
+}
+
+/* Permite deshabilitar la selección de texto en los elementos */
+* {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* Internet Explorer 10+ */
+  user-select: none; /* Standard syntax */
+}
