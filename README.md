@@ -1,40 +1,170 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 📚 Portal Docente
 
-## Getting Started
+> Sistema integral de gestión académica para docentes universitarios, desarrollado con Next.js y React
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15.1.6-black)
+![React](https://img.shields.io/badge/React-19.0.0-61dafb)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4.1-38bdf8)
+![License](https://img.shields.io/badge/license-Private-red)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🎯 Descripción del Proyecto
+
+Portal Docente es una aplicación web completa diseñada para optimizar la gestión académica de profesores universitarios. Proporciona herramientas para administrar grupos, estudiantes, evaluaciones, generar reportes analíticos y realizar seguimiento del rendimiento académico en tiempo real.
+
+### ✨ Características Principales
+
+- **📊 Dashboard Interactivo**: Visualización en tiempo real de estadísticas clave, tendencias académicas y métricas de rendimiento
+- **👥 Gestión de Estudiantes**: Administración completa de información estudiantil con búsqueda avanzada y filtros
+- **📝 Sistema de Evaluaciones**: Registro y seguimiento de calificaciones con cálculo automático de promedios
+- **👨‍🏫 Administración de Grupos**: Control de grupos académicos, horarios y asignaciones
+- **📈 Reportes Analíticos**: 
+  - Reportes de tasa de aprobación
+  - Estadísticas de rendimiento por grupo
+  - Exportación a PDF y Excel
+- **🔔 Sistema de Notificaciones**: Alertas y recordatorios en tiempo real
+- **🎨 Interfaz Moderna**: Diseño responsive con animaciones fluidas y experiencia de usuario optimizada
+- **🔒 Autenticación Segura**: Sistema de login con JWT y middleware de protección de rutas
+
+## 🛠️ Tecnologías Utilizadas
+
+### Frontend
+- **Framework**: Next.js 15 (con App Router y Turbopack)
+- **UI Library**: React 19
+- **Estilos**: TailwindCSS, Flowbite React
+- **Animaciones**: Framer Motion
+- **Iconos**: React Icons, Lucide React, Font Awesome
+
+### Visualización de Datos
+- **Gráficas**: Chart.js, React Chart.js 2, Recharts
+- **Componentes**: React CountUp, React Loading Skeleton
+
+### Utilidades
+- **Manejo de Fechas**: date-fns
+- **Exportación**: jsPDF, jsPDF AutoTable, XLSX
+- **Formularios**: React Select
+- **Notificaciones**: React Hot Toast, Sonner
+- **Tooltips**: React Tooltip
+
+## 📁 Estructura del Proyecto
+
+```
+PortalDocente/
+├── components/           # Componentes reutilizables
+│   ├── common/          # Header, Sidebar, NavItem
+│   ├── dashboard/       # Widgets del dashboard
+│   ├── sections/        # Secciones de páginas
+│   ├── DashboardLayout/ # Layout principal
+│   └── Skeleton/        # Componentes de carga
+├── context/             # Context API de React
+│   ├── contextUser.jsx
+│   ├── contextGroups.jsx
+│   ├── contextEstudiantes.jsx
+│   └── contextNotificaciones.jsx
+├── pages/               # Páginas de la aplicación
+│   ├── dashboard.jsx
+│   ├── estudiantes.jsx
+│   ├── evaluaciones.jsx
+│   ├── grupos.jsx
+│   ├── reportes/
+│   └── notificacion/
+├── public/              # Recursos estáticos
+│   ├── Imagenes/
+│   └── boletas/
+└── styles/              # Estilos globales
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Instalación y Configuración
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Prerrequisitos
+- Node.js 18.x o superior
+- npm o yarn
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Pasos de Instalación
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+1. **Clonar el repositorio**
+```bash
+git clone https://github.com/Fernando88323/PortalDocente.git
+cd PortalDocente
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Instalar dependencias**
+```bash
+npm install
+```
 
-## Learn More
+3. **Ejecutar en modo desarrollo**
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Abrir en el navegador**
+```
+http://localhost:3000
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## 📦 Scripts Disponibles
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run dev        # Inicia el servidor de desarrollo con Turbopack
+npm run build      # Genera el build de producción
+npm start          # Inicia el servidor de producción
+npm run lint       # Ejecuta el linter
+```
 
-## Deploy on Vercel
+## 🎨 Características Técnicas Destacadas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Optimización de Rendimiento**: Lazy loading, code splitting y optimización de imágenes
+- **Estado Global**: Context API para manejo eficiente del estado
+- **Animaciones Suaves**: Transiciones y micro-interacciones con Framer Motion
+- **Diseño Responsive**: Totalmente adaptable a dispositivos móviles y tablets
+- **Middleware de Autenticación**: Protección de rutas con JWT
+- **Exportación de Datos**: Generación de reportes en PDF y Excel
+- **Modo Oscuro**: Soporte para tema claro/oscuro (si aplica)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 📊 Funcionalidades por Módulo
+
+### Dashboard
+- Estadísticas generales en tiempo real
+- Gráficas de rendimiento académico
+- Calendario de eventos
+- Alertas y notificaciones importantes
+
+### Estudiantes
+- Lista completa con búsqueda y filtros
+- Edición inline de información
+- Historial académico
+- Estadísticas individuales
+
+### Evaluaciones
+- Registro de calificaciones
+- Cálculo automático de promedios
+- Visualización de tendencias
+
+### Reportes
+- Tasa de aprobación por grupo
+- Análisis comparativo
+- Exportación a múltiples formatos
+
+## 🔐 Seguridad
+
+- Autenticación con JWT
+- Validación de tokens en cada solicitud
+- Middleware de protección de rutas
+- Manejo seguro de datos sensibles
+
+## 🤝 Contribuciones
+
+Este es un proyecto privado desarrollado para fines académicos y profesionales.
+
+## 👨‍💻 Autor
+
+**Fernando**
+- GitHub: [@Fernando88323](https://github.com/Fernando88323)
+
+## 📄 Licencia
+
+Este proyecto es privado y está protegido por derechos de autor.
+
+---
+
+Desarrollado con ❤️ usando Next.js y React
