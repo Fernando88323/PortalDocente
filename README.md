@@ -1,170 +1,157 @@
-# 📚 Portal Docente
+# Portal Docente
 
-> Sistema integral de gestión académica para docentes universitarios, desarrollado con Next.js y React
+Sistema web de gestión académica para docentes universitarios desarrollado con Next.js y React.
 
 ![Next.js](https://img.shields.io/badge/Next.js-15.1.6-black)
 ![React](https://img.shields.io/badge/React-19.0.0-61dafb)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4.1-38bdf8)
-![License](https://img.shields.io/badge/license-Private-red)
 
-## 🎯 Descripción del Proyecto
+## Descripción
 
-Portal Docente es una aplicación web completa diseñada para optimizar la gestión académica de profesores universitarios. Proporciona herramientas para administrar grupos, estudiantes, evaluaciones, generar reportes analíticos y realizar seguimiento del rendimiento académico en tiempo real.
+Aplicación web completa para la gestión académica universitaria que permite a docentes y decanos administrar grupos, estudiantes, evaluaciones y generar reportes de rendimiento académico. Incluye sistema de roles diferenciados (Docente/Decano) y control de períodos de evaluación.
 
-### ✨ Características Principales
+## Funcionalidades Principales
 
-- **📊 Dashboard Interactivo**: Visualización en tiempo real de estadísticas clave, tendencias académicas y métricas de rendimiento
-- **👥 Gestión de Estudiantes**: Administración completa de información estudiantil con búsqueda avanzada y filtros
-- **📝 Sistema de Evaluaciones**: Registro y seguimiento de calificaciones con cálculo automático de promedios
-- **👨‍🏫 Administración de Grupos**: Control de grupos académicos, horarios y asignaciones
-- **📈 Reportes Analíticos**: 
-  - Reportes de tasa de aprobación
-  - Estadísticas de rendimiento por grupo
-  - Exportación a PDF y Excel
-- **🔔 Sistema de Notificaciones**: Alertas y recordatorios en tiempo real
-- **🎨 Interfaz Moderna**: Diseño responsive con animaciones fluidas y experiencia de usuario optimizada
-- **🔒 Autenticación Segura**: Sistema de login con JWT y middleware de protección de rutas
+**Dashboard Analítico**
+- Visualización de estadísticas en tiempo real con gráficas interactivas (Chart.js, Recharts)
+- Métricas de rendimiento académico por grupo y estudiante
+- Widgets de eventos y progreso con animaciones (Framer Motion)
 
-## 🛠️ Tecnologías Utilizadas
+**Gestión de Estudiantes**
+- CRUD completo con búsqueda avanzada y filtros
+- Edición inline de información
+- Visualización de historial académico y estadísticas individuales
 
-### Frontend
-- **Framework**: Next.js 15 (con App Router y Turbopack)
-- **UI Library**: React 19
-- **Estilos**: TailwindCSS, Flowbite React
-- **Animaciones**: Framer Motion
-- **Iconos**: React Icons, Lucide React, Font Awesome
+**Sistema de Evaluaciones Docentes y Decano**
+- Evaluaciones con preguntas dinámicas y calificación automática
+- Control de períodos de evaluación con validación de fechas
+- Sistema de respuestas con persistencia local (LocalStorage)
+- Manejo diferenciado por rol (docente/decano)
 
-### Visualización de Datos
-- **Gráficas**: Chart.js, React Chart.js 2, Recharts
-- **Componentes**: React CountUp, React Loading Skeleton
+**Gestión de Grupos Académicos**
+- Administración de grupos con información de jornada, aula y horarios
+- Visualización en tarjetas animadas con diseño moderno
+- Filtros y búsqueda en tiempo real
 
-### Utilidades
-- **Manejo de Fechas**: date-fns
-- **Exportación**: jsPDF, jsPDF AutoTable, XLSX
-- **Formularios**: React Select
-- **Notificaciones**: React Hot Toast, Sonner
-- **Tooltips**: React Tooltip
+**Reportes Avanzados**
+- Tasa de aprobación por grupo y cuota
+- Exportación a PDF (jsPDF) y Excel (XLSX)
+- Visualización con tablas interactivas y búsqueda
+- Generación dinámica según rol del usuario
 
-## 📁 Estructura del Proyecto
+**Sistema de Notificaciones**
+- Notificaciones en tiempo real con rutas dinámicas
+- Integración con React Hot Toast y Sonner
+
+## Stack Tecnológico
+
+**Core**
+- Next.js 15.1.6 con Turbopack
+- React 19
+- Context API para estado global
+
+**UI/UX**
+- TailwindCSS 3.4.1
+- Flowbite React
+- Framer Motion (animaciones)
+- React Icons, Lucide React, Font Awesome
+
+**Gráficas y Visualización**
+- Chart.js con React Chart.js 2
+- Recharts
+- React CountUp
+
+**Utilidades**
+- jsPDF y jsPDF AutoTable (PDFs)
+- XLSX (Excel)
+- React Select (formularios)
+- date-fns (fechas)
+- jsonwebtoken (autenticación)
+
+## Arquitectura del Proyecto
 
 ```
-PortalDocente/
-├── components/           # Componentes reutilizables
-│   ├── common/          # Header, Sidebar, NavItem
-│   ├── dashboard/       # Widgets del dashboard
-│   ├── sections/        # Secciones de páginas
-│   ├── DashboardLayout/ # Layout principal
-│   └── Skeleton/        # Componentes de carga
-├── context/             # Context API de React
-│   ├── contextUser.jsx
-│   ├── contextGroups.jsx
+├── components/
+│   ├── common/              # Header, Sidebar, NavItem
+│   ├── dashboard/           # StatCard, ProgressChart, EventsWidget
+│   ├── DashboardLayout/     # Layout principal con navegación
+│   ├── TasaAprobacionPanel.jsx  # Componente complejo de reportes
+│   └── Skeleton/            # Estados de carga
+├── context/                 # Gestión de estado global
+│   ├── contextUser.jsx      # Usuario y autenticación
+│   ├── contextGroups.jsx    # Grupos académicos
 │   ├── contextEstudiantes.jsx
+│   ├── contextCicloActual.jsx
 │   └── contextNotificaciones.jsx
-├── pages/               # Páginas de la aplicación
-│   ├── dashboard.jsx
-│   ├── estudiantes.jsx
-│   ├── evaluaciones.jsx
-│   ├── grupos.jsx
+├── pages/                   # Rutas de la aplicación
+│   ├── dashboard.jsx        # Dashboard principal con métricas
+│   ├── estudiantes.jsx      # CRUD de estudiantes
+│   ├── evaluaciones.jsx     # Sistema de evaluaciones (4344 líneas)
+│   ├── grupos.jsx           # Gestión de grupos
 │   ├── reportes/
-│   └── notificacion/
-├── public/              # Recursos estáticos
-│   ├── Imagenes/
-│   └── boletas/
-└── styles/              # Estilos globales
+│   │   └── tasa-aprobacion.jsx
+│   └── notificacion/[id].jsx
+├── middleware.js            # Protección de rutas con JWT
+└── styles/
+    └── globals.css
 ```
 
-## 🚀 Instalación y Configuración
+## Características Técnicas Destacadas
 
-### Prerrequisitos
-- Node.js 18.x o superior
-- npm o yarn
+**Autenticación y Seguridad**
+- Middleware de Next.js para protección de rutas
+- Validación de JWT en cookies (accessToken)
+- Redirección automática según estado de autenticación
+- Sistema de roles (Docente ID:10, Decano ID:2)
 
-### Pasos de Instalación
+**Optimización de Rendimiento**
+- Lazy loading y code splitting
+- Skeleton loaders para mejor UX
+- Memoización con useMemo y useCallback
+- Optimización de re-renders con React 19
 
-1. **Clonar el repositorio**
+**Estado y Datos**
+- Context API para compartir estado entre componentes
+- Persistencia local con LocalStorage para evaluaciones
+- Gestión de ciclos académicos dinámicos
+- Validación de formato de ciclos (01/24)
+
+**Exportación de Datos**
+- PDFs con diseño personalizado y tablas automáticas
+- Hojas de Excel con formateo y múltiples sheets
+- Descarga de reportes según filtros seleccionados
+
+## Instalación
+
 ```bash
+# Clonar repositorio
 git clone https://github.com/Fernando88323/PortalDocente.git
 cd PortalDocente
-```
 
-2. **Instalar dependencias**
-```bash
+# Instalar dependencias
 npm install
-```
 
-3. **Ejecutar en modo desarrollo**
-```bash
+# Ejecutar en desarrollo
 npm run dev
+
+# Build para producción
+npm run build
+npm start
 ```
 
-4. **Abrir en el navegador**
-```
-http://localhost:3000
-```
-
-## 📦 Scripts Disponibles
+## Scripts
 
 ```bash
-npm run dev        # Inicia el servidor de desarrollo con Turbopack
-npm run build      # Genera el build de producción
-npm start          # Inicia el servidor de producción
-npm run lint       # Ejecuta el linter
+npm run dev    # Desarrollo con Turbopack
+npm run build  # Build de producción
+npm start      # Servidor de producción
+npm run lint   # Linter
 ```
 
-## 🎨 Características Técnicas Destacadas
+## Autor
 
-- **Optimización de Rendimiento**: Lazy loading, code splitting y optimización de imágenes
-- **Estado Global**: Context API para manejo eficiente del estado
-- **Animaciones Suaves**: Transiciones y micro-interacciones con Framer Motion
-- **Diseño Responsive**: Totalmente adaptable a dispositivos móviles y tablets
-- **Middleware de Autenticación**: Protección de rutas con JWT
-- **Exportación de Datos**: Generación de reportes en PDF y Excel
-- **Modo Oscuro**: Soporte para tema claro/oscuro (si aplica)
+Fernando - [@Fernando88323](https://github.com/Fernando88323)
 
-## 📊 Funcionalidades por Módulo
+## Licencia
 
-### Dashboard
-- Estadísticas generales en tiempo real
-- Gráficas de rendimiento académico
-- Calendario de eventos
-- Alertas y notificaciones importantes
-
-### Estudiantes
-- Lista completa con búsqueda y filtros
-- Edición inline de información
-- Historial académico
-- Estadísticas individuales
-
-### Evaluaciones
-- Registro de calificaciones
-- Cálculo automático de promedios
-- Visualización de tendencias
-
-### Reportes
-- Tasa de aprobación por grupo
-- Análisis comparativo
-- Exportación a múltiples formatos
-
-## 🔐 Seguridad
-
-- Autenticación con JWT
-- Validación de tokens en cada solicitud
-- Middleware de protección de rutas
-- Manejo seguro de datos sensibles
-
-## 🤝 Contribuciones
-
-Este es un proyecto privado desarrollado para fines académicos y profesionales.
-
-## 👨‍💻 Autor
-
-**Fernando**
-- GitHub: [@Fernando88323](https://github.com/Fernando88323)
-
-## 📄 Licencia
-
-Este proyecto es privado y está protegido por derechos de autor.
-
----
-
-Desarrollado con ❤️ usando Next.js y React
+Proyecto privado con fines académicos y profesionales.
